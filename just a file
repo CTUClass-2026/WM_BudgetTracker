@@ -1,1 +1,8 @@
-This file is just so git lets me create a branch
+1. Ensure you are on workspace
+2. git pull
+3. code
+4. git add .
+5. git commit -m "Added steps for git workflow"
+6. git pull
+7. Ensure everything works
+8. git push
