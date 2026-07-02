@@ -1,0 +1,4 @@
+2025-03-25,Bill,1000.0,Electricity
+2025-06-10,Bill,1500.0,Clothes
+2025-04-24,Leisure,2000.0,Cape Town
+2022-05-25,Vehicle,2500.0,Tyres
