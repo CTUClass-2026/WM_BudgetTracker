@@ -70,7 +70,7 @@ public class ViewExpensesPanel extends JPanel {
         }
 
         try {
-            FileManager.delete(row);
+            new ExpenseFileDAO().delete(row);
             refresh();
             JOptionPane.showMessageDialog(this, "Expense deleted.");
         } catch (IOException ex) {
