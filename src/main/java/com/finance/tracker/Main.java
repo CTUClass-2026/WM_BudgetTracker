@@ -5,6 +5,10 @@ import com.finance.tracker.model.Category;
 import com.finance.tracker.service.CategoryService;
 import com.finance.tracker.ui.MainFrame;
 
+/**
+ * Application entry point for the personal finance tracker.
+ */
+
 import javax.swing.SwingUtilities;
 
 public class Main {

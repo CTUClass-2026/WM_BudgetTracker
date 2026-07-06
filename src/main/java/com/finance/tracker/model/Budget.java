@@ -1,5 +1,8 @@
 package com.finance.tracker.model;
 
+/**
+ * Represents a monthly spending budget for a category.
+ */
 public class Budget {
     private int id;
     private int categoryId;

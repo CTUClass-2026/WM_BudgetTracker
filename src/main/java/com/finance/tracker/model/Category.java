@@ -1,5 +1,8 @@
 package com.finance.tracker.model;
 
+/**
+ * Represents a spending category that can be assigned to expenses.
+ */
 public class Category {
     private int id;
     private String name;

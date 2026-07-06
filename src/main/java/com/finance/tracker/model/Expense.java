@@ -3,6 +3,9 @@ package com.finance.tracker.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * Represents a single expense record with its amount, date, and payment details.
+ */
 public class Expense {
     private int id;
     private double amount;

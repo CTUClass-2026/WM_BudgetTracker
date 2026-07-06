@@ -5,6 +5,10 @@ import com.finance.tracker.file.CsvUtil;
 import com.finance.tracker.file.FileManager;
 import com.finance.tracker.model.Expense;
 
+/**
+ * File-based implementation of expense persistence using a CSV file.
+ */
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDate;

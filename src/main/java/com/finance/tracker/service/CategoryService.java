@@ -4,6 +4,10 @@ import com.finance.tracker.dao.CategoryDAO;
 import com.finance.tracker.dao.impl.CategoryFileDAO;
 import com.finance.tracker.model.Category;
 
+/**
+ * Business logic for creating, deleting, and fetching expense categories.
+ */
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;

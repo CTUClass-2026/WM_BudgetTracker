@@ -4,6 +4,10 @@ import com.finance.tracker.dao.ExpenseDAO;
 import com.finance.tracker.dao.impl.ExpenseFileDAO;
 import com.finance.tracker.model.Expense;
 
+/**
+ * Business logic for adding, deleting, and reading expense records.
+ */
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

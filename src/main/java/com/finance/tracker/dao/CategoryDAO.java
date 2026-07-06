@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Data access contract for category persistence.
+ */
 public interface CategoryDAO {
     void add(Category category) throws IOException;
     void delete(int id) throws IOException;

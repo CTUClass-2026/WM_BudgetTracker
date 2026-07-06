@@ -4,6 +4,10 @@ import com.finance.tracker.model.Budget;
 import com.finance.tracker.model.Category;
 import com.finance.tracker.model.Expense;
 
+/**
+ * Produces a simple dashboard summary for spending and budget status.
+ */
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;

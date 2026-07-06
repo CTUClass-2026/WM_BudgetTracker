@@ -4,6 +4,10 @@ import com.finance.tracker.dao.BudgetDAO;
 import com.finance.tracker.dao.impl.BudgetFileDAO;
 import com.finance.tracker.model.Budget;
 
+/**
+ * Business logic for saving and retrieving monthly budget entries.
+ */
+
 import java.io.IOException;
 import java.util.List;
 

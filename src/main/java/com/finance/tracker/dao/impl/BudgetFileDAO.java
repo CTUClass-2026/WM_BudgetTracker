@@ -5,6 +5,10 @@ import com.finance.tracker.file.CsvUtil;
 import com.finance.tracker.file.FileManager;
 import com.finance.tracker.model.Budget;
 
+/**
+ * File-based implementation of budget persistence using a CSV file.
+ */
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;

@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Creates and initializes the CSV data files used by the application.
+ */
 public class FileManager {
     public static final Path DATA_DIR = Path.of("data");
     public static final Path CATEGORY_FILE = DATA_DIR.resolve("categories.csv");

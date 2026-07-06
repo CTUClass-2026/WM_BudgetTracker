@@ -14,6 +14,9 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Main Swing window for managing expenses, categories, budgets, and dashboard views.
+ */
 public class MainFrame extends JFrame {
     private final CategoryService categoryService = new CategoryService();
     private final ExpenseService expenseService = new ExpenseService();
