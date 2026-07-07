@@ -1,23 +1,20 @@
 package com.finance.tracker.service;
 
-import com.finance.tracker.model.Budget;
-import com.finance.tracker.model.Category;
-import com.finance.tracker.model.Expense;
-
-/**
- * Produces a simple dashboard summary for spending and budget status.
- */
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.finance.tracker.model.Budget;
+import com.finance.tracker.model.Category;
+import com.finance.tracker.model.Expense;
 
 public class DashboardService {
     private final CategoryService categoryService = new CategoryService();
     private final ExpenseService expenseService = new ExpenseService();
     private final BudgetService budgetService = new BudgetService();
 
+    // Public method for generating a dashboard summary
     public String generateDashboard(int month, int year) throws IOException {
         List<Category> categories = categoryService.getAllCategories();
         List<Expense> expenses = expenseService.getExpensesByMonth(month, year);
@@ -57,6 +54,7 @@ public class DashboardService {
                   .append(" | ").append(String.format("%.1f", percentage)).append("% | ").append(status).append("\n");
             }
         }
+
         return sb.toString();
     }
 }

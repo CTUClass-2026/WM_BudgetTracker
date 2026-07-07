@@ -7,6 +7,7 @@ import java.util.List;
  * Helper methods for safely escaping and parsing CSV-formatted values.
  */
 public class CsvUtil {
+    // Security measure to ensure no one can create a CsvUtil Object
     private CsvUtil() {}
 
     // Escapes a field value so it can safely be written to CSV format.

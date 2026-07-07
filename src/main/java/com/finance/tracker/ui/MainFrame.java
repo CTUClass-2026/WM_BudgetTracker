@@ -1,5 +1,24 @@
 package com.finance.tracker.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 import com.finance.tracker.model.Budget;
 import com.finance.tracker.model.Category;
 import com.finance.tracker.model.Expense;
@@ -7,12 +26,6 @@ import com.finance.tracker.service.BudgetService;
 import com.finance.tracker.service.CategoryService;
 import com.finance.tracker.service.DashboardService;
 import com.finance.tracker.service.ExpenseService;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.time.LocalDate;
-import java.util.List;
 
 /**
  * Main Swing window for managing expenses, categories, budgets, and dashboard views.

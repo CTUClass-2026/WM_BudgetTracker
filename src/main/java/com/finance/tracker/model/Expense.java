@@ -15,6 +15,7 @@ public class Expense {
     private String paymentMethod;
     private LocalDateTime createdAt;
 
+    // Constructor
     public Expense(int id, double amount, String description, int categoryId,
                    LocalDate expenseDate, String paymentMethod, LocalDateTime createdAt) {
         this.id = id;
@@ -26,8 +27,12 @@ public class Expense {
         this.createdAt = createdAt;
     }
 
+    // =====| Getters and setters
+    // ID
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+
+    // General getters
     public double getAmount() { return amount; }
     public String getDescription() { return description; }
     public int getCategoryId() { return categoryId; }

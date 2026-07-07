@@ -8,15 +8,22 @@ public class Category {
     private String name;
     private String colorHex;
 
+    // Constructor
     public Category(int id, String name, String colorHex) {
         this.id = id;
         this.name = name;
         this.colorHex = colorHex;
     }
 
+    // =====| Getters and setters
+    // ID
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+
+    // Name
     public String getName() { return name; }
+
+    // Color
     public String getColorHex() { return colorHex; }
 
     @Override

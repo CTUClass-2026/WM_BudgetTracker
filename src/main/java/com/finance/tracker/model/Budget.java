@@ -18,11 +18,21 @@ public class Budget {
         this.budgetYear = budgetYear;
     }
 
+    // =====| Getters and setters
+    // ID
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
-    public int getCategoryId() { return categoryId; }
+
+    // Budget 
     public double getBudgetAmount() { return budgetAmount; }
+    public void setBudgetAmount(double budgetAmount) { this.budgetAmount = budgetAmount; }
+
     public int getBudgetMonth() { return budgetMonth; }
     public int getBudgetYear() { return budgetYear; }
-    public void setBudgetAmount(double budgetAmount) { this.budgetAmount = budgetAmount; }
+
+    // Category
+
+    public int getCategoryId() { return categoryId; }
+    
+    
 }

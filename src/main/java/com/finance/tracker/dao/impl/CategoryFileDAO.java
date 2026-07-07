@@ -1,19 +1,15 @@
 package com.finance.tracker.dao.impl;
 
-import com.finance.tracker.dao.CategoryDAO;
-import com.finance.tracker.file.CsvUtil;
-import com.finance.tracker.file.FileManager;
-import com.finance.tracker.model.Category;
-
-/**
- * File-based implementation of category persistence using a CSV file.
- */
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import com.finance.tracker.dao.CategoryDAO;
+import com.finance.tracker.file.CsvUtil;
+import com.finance.tracker.file.FileManager;
+import com.finance.tracker.model.Category;
 
 public class CategoryFileDAO implements CategoryDAO {
     @Override

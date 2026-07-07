@@ -1,20 +1,16 @@
 package com.finance.tracker.dao.impl;
 
-import com.finance.tracker.dao.ExpenseDAO;
-import com.finance.tracker.file.CsvUtil;
-import com.finance.tracker.file.FileManager;
-import com.finance.tracker.model.Expense;
-
-/**
- * File-based implementation of expense persistence using a CSV file.
- */
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.finance.tracker.dao.ExpenseDAO;
+import com.finance.tracker.file.CsvUtil;
+import com.finance.tracker.file.FileManager;
+import com.finance.tracker.model.Expense;
 
 public class ExpenseFileDAO implements ExpenseDAO {
     @Override
