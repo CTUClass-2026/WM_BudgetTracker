@@ -1,0 +1,2 @@
+id,amount,description,categoryId,expenseDate,paymentMethod,createdAt
+1,1900.0,"fuel",1,2026-07-06,"CARD",2026-07-06T21:18:49.508141500

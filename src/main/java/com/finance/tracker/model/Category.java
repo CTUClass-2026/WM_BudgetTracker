@@ -1,0 +1,26 @@
+package com.finance.tracker.model;
+
+/**
+ * Represents a spending category that can be assigned to expenses.
+ */
+public class Category {
+    private int id;
+    private String name;
+    private String colorHex;
+
+    public Category(int id, String name, String colorHex) {
+        this.id = id;
+        this.name = name;
+        this.colorHex = colorHex;
+    }
+
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public String getName() { return name; }
+    public String getColorHex() { return colorHex; }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
