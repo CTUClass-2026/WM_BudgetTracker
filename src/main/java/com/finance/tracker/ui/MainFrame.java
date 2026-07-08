@@ -54,6 +54,8 @@ public class MainFrame extends JFrame {
     private DefaultTableModel categoryTableModel;
     private DefaultTableModel budgetTableModel;
 
+
+    //========================================|  Main Frame |========================================
     public MainFrame() {
         setTitle("Personal Finance Tracker");
         setSize(950, 650);
@@ -71,6 +73,7 @@ public class MainFrame extends JFrame {
         refreshAll();
     }
 
+    //========================================| Create Add Expense Panel |========================================
     private JPanel createAddExpensePanel() {
         JPanel panel = new JPanel(new GridLayout(6, 2, 10, 10));
         expenseCategoryCombo = new JComboBox<>();
@@ -90,6 +93,7 @@ public class MainFrame extends JFrame {
         return panel;
     }
 
+    //========================================| Create Expense Panel |========================================
     private JPanel createExpensesPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         expenseTableModel = new DefaultTableModel(new String[]{"ID", "Amount", "Description", "Category ID", "Date", "Payment"}, 0);
@@ -109,6 +113,7 @@ public class MainFrame extends JFrame {
         return panel;
     }
 
+    //========================================| Create Categories Panel |========================================
     private JPanel createCategoriesPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         categoryTableModel = new DefaultTableModel(new String[]{"ID", "Name", "Colour"}, 0);
@@ -136,6 +141,7 @@ public class MainFrame extends JFrame {
         return panel;
     }
 
+    //========================================| Create Budget Panel |========================================
     private JPanel createBudgetsPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         budgetTableModel = new DefaultTableModel(new String[]{"ID", "Category ID", "Amount", "Month", "Year"}, 0);
@@ -157,6 +163,7 @@ public class MainFrame extends JFrame {
         return panel;
     }
 
+    //========================================| Create Dashboard Panel |========================================
     private JPanel createDashboardPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         dashboardArea = new JTextArea();
@@ -175,6 +182,11 @@ public class MainFrame extends JFrame {
         return panel;
     }
 
+    //===========================================================================================\\
+    //========================================| Methods |========================================\\
+    //===========================================================================================\\
+
+    //====================| Save Expense |====================
     private void saveExpense() {
         try {
             Category category = (Category) expenseCategoryCombo.getSelectedItem();
@@ -191,6 +203,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
+    //====================| Add Category |====================
     private void addCategory() {
         try {
             categoryService.addCategory(categoryNameField.getText(), categoryColorField.getText());
@@ -200,6 +213,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
+    //====================| Save Budget |====================
     private void saveBudget() {
         try {
             Category category = (Category) budgetCategoryCombo.getSelectedItem();
@@ -210,6 +224,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
+    //====================| Refresh All |====================
     private void refreshAll() {
         refreshCategoryCombos();
         refreshCategories();
@@ -218,6 +233,7 @@ public class MainFrame extends JFrame {
         refreshDashboard();
     }
 
+    //====================| Refresh Category Combos |====================
     private void refreshCategoryCombos() {
         try {
             List<Category> categories = categoryService.getAllCategories();
@@ -227,6 +243,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
+    //====================| Refresh Categories |====================
     private void refreshCategories() {
         try {
             categoryTableModel.setRowCount(0);
@@ -236,6 +253,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
+    //====================| Refresh Expenses |====================
     private void refreshExpenses() {
         try {
             expenseTableModel.setRowCount(0);
@@ -245,6 +263,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
+    //====================| Refresh Budgets |====================
     private void refreshBudgets() {
         try {
             budgetTableModel.setRowCount(0);
@@ -254,6 +273,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { showError(ex.getMessage()); }
     }
 
+    //====================| Refresh Dashboard |====================
     private void refreshDashboard() {
         try {
             int month = Integer.parseInt(dashboardMonthField.getText());
@@ -262,6 +282,7 @@ public class MainFrame extends JFrame {
         } catch (Exception ex) { dashboardArea.setText("Could not load dashboard: " + ex.getMessage()); }
     }
 
+    //====================| Show error |====================
     private void showError(String message) {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }

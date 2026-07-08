@@ -13,16 +13,23 @@ import com.finance.tracker.model.Budget;
 
 
 public class BudgetFileDAO implements BudgetDAO {
+    // ==========| Add or Update |========== 
     @Override
     public void addOrUpdate(Budget budget) throws IOException {
         List<Budget> budgets = findAll();
         Optional<Budget> existing = budgets.stream()
-                .filter(b -> b.getCategoryId() == budget.getCategoryId() && b.getBudgetMonth() == budget.getBudgetMonth() && b.getBudgetYear() == budget.getBudgetYear())
+                .filter(b -> 
+                    b.getCategoryId() == budget.getCategoryId() && 
+                    b.getBudgetMonth() == budget.getBudgetMonth() && 
+                    b.getBudgetYear() == budget.getBudgetYear())
                 .findFirst();
 
+        // If this budget already exists
         if (existing.isPresent()) {
             existing.get().setBudgetAmount(budget.getBudgetAmount());
-        } else {
+        } 
+        // If this is a new budget
+        else {
             int nextId = budgets.stream().mapToInt(Budget::getId).max().orElse(0) + 1;
             budget.setId(nextId);
             budgets.add(budget);
@@ -30,6 +37,7 @@ public class BudgetFileDAO implements BudgetDAO {
         saveAll(budgets);
     }
 
+    // ==========| Delete |========== 
     @Override
     public void delete(int id) throws IOException {
         List<Budget> budgets = findAll();
@@ -37,6 +45,7 @@ public class BudgetFileDAO implements BudgetDAO {
         saveAll(budgets);
     }
 
+    // ==========| Find All |========== 
     @Override
     public List<Budget> findAll() throws IOException {
         List<String> lines = Files.readAllLines(FileManager.BUDGET_FILE);
@@ -50,6 +59,7 @@ public class BudgetFileDAO implements BudgetDAO {
         return budgets;
     }
 
+    // ==========| Save all |========== 
     private void saveAll(List<Budget> budgets) throws IOException {
         StringBuilder sb = new StringBuilder("id,categoryId,budgetAmount,budgetMonth,budgetYear\n");
         for (Budget b : budgets) {
