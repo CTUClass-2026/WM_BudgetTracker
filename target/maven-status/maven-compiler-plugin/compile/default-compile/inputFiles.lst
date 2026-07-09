@@ -1,6 +1,18 @@
-C:\Users\ludwi\OneDrive - NTP Radioisotopes SOC\Documents\NetBeansProjects\PersonalFinanceTrackerCTU\src\main\java\com\mycompany\personalfinancetrackerctu\AddExpensePanel.java
-C:\Users\ludwi\OneDrive - NTP Radioisotopes SOC\Documents\NetBeansProjects\PersonalFinanceTrackerCTU\src\main\java\com\mycompany\personalfinancetrackerctu\Expense.java
-C:\Users\ludwi\OneDrive - NTP Radioisotopes SOC\Documents\NetBeansProjects\PersonalFinanceTrackerCTU\src\main\java\com\mycompany\personalfinancetrackerctu\FileManager.java
-C:\Users\ludwi\OneDrive - NTP Radioisotopes SOC\Documents\NetBeansProjects\PersonalFinanceTrackerCTU\src\main\java\com\mycompany\personalfinancetrackerctu\MainFrame.java
-C:\Users\ludwi\OneDrive - NTP Radioisotopes SOC\Documents\NetBeansProjects\PersonalFinanceTrackerCTU\src\main\java\com\mycompany\personalfinancetrackerctu\PersonalFinanceTracker.java
-C:\Users\ludwi\OneDrive - NTP Radioisotopes SOC\Documents\NetBeansProjects\PersonalFinanceTrackerCTU\src\main\java\com\mycompany\personalfinancetrackerctu\ViewExpensesPanel.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\AddExpensePanel.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\BaseIncomeManager.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\CategoryValidator.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\Expense.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\ExpenseService.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\FileManager.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\IconFactory.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\IncomeManager.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\LimitManager.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\LoginDialog.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\LoginManager.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\MainFrame.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\PersonalFinanceTracker.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\RecurringExpenseManager.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\SpendAnalyticsPanel.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\Theme.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\ViewExpensesPanel.java
+C:\Users\kobus\Downloads\WM_BudgetTracker\WM_BudgetTracker\src\main\java\com\mycompany\personalfinancetrackerctu\WelcomeDialog.java
