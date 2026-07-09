@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <name>run-application</name>
+        <displayName>Run Application</displayName>
+        <command>run</command>
+        <properties>
+            <property>
+                <name>args</name>
+                <value/>
+            </property>
+        </properties>
+    </action>
+    <action>
+        <name>run-tests</name>
+        <displayName>Run Tests</displayName>
+        <command>test</command>
+    </action>
+    <action>
+        <name>compile-project</name>
+        <displayName>Compile Project</displayName>
+        <command>compile</command>
+    </action>
+</actions>
