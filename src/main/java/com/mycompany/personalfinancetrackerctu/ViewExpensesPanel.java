@@ -3,11 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.personalfinancetrackerctu;
-
-/*
- * Imported project classes/files: ExpenseService, LimitManager, LoginManager, CategoryValidator, Expense, Theme.
- */
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;

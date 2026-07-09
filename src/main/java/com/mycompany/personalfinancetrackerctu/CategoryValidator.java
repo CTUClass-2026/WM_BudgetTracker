@@ -1,9 +1,5 @@
 package com.mycompany.personalfinancetrackerctu;
 
-/*
- * Imported project classes/files: none.
- */
-
 /**
  * Validates and normalizes category names before they are stored or displayed.
  * This helper is used by the UI and service layers to prevent invalid category input.

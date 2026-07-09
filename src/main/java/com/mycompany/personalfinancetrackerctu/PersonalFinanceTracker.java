@@ -4,10 +4,6 @@
 
 package com.mycompany.personalfinancetrackerctu;
 
-/*
- * Imported project classes/files: LoginManager, WelcomeDialog, ExpenseService, FileManager, MainFrame.
- */
-
 import javax.swing.SwingUtilities;
 
 /**

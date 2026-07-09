@@ -1,9 +1,5 @@
 package com.mycompany.personalfinancetrackerctu;
 
-/*
- * Imported project classes/files: IconFactory, Theme, LoginManager.
- */
-
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;

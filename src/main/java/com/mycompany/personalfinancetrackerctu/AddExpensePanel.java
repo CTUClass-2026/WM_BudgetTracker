@@ -3,11 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.personalfinancetrackerctu;
-
-/*
- * Imported project classes/files: ExpenseService, LimitManager, LoginManager, CategoryValidator, ViewExpensesPanel, Theme, Expense.
- */
-
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -182,9 +177,10 @@ public class AddExpensePanel extends JPanel {
             }
 
             try {
-                if (isOverLimit(cat, LocalDate.parse(date), amount)) {
+                LocalDate expenseDate = LocalDate.parse(date);
+                if (isOverLimit(cat, expenseDate, amount)) {
                     double limit = budgetManager.getLimit(cat);
-                    double currentTotal = getCategoryMonthTotal(cat, LocalDate.parse(date));
+                    double currentTotal = getCategoryMonthTotal(cat, expenseDate);
                     int choice = JOptionPane.showConfirmDialog(this,
                             String.format("This expense would exceed the monthly limit for '%s'.\nCurrent month spent: %.2f\nLimit: %.2f\nAdd anyway?", cat, currentTotal, limit),
                             "Limit Exceeded", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -193,6 +189,20 @@ public class AddExpensePanel extends JPanel {
                     }
                 }
                 expenseService.addExpense(new Expense(date, cat, amount, desc));
+
+                Double limit = budgetManager.getLimit(cat);
+                if (limit != null && limit > 0) {
+                    double updatedCategoryTotal = getCategoryMonthTotal(cat, expenseDate);
+                    double usagePercent = (updatedCategoryTotal / limit) * 100.0;
+
+                    // If more than 80% of the budget has been used
+                    if (usagePercent >= 80.0) {
+                        JOptionPane.showMessageDialog(this,
+                                buildBudgetAlertMessage(cat, updatedCategoryTotal, limit, currency),
+                                "Budget Alert",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                }
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Unable to save expense: " + ex.getMessage(), "Save Error", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -261,6 +271,38 @@ public class AddExpensePanel extends JPanel {
         } else if (categoryCombo.getItemCount() > 0) {
             categoryCombo.setSelectedIndex(0);
         }
+    }
+
+    String buildBudgetAlertMessage(String category, double totalSpent, double limit) {
+        return buildBudgetAlertMessage(category, totalSpent, limit, "$", false);
+    }
+
+    String buildBudgetAlertMessage(String category, double totalSpent, double limit, String currency) {
+        return buildBudgetAlertMessage(category, totalSpent, limit, getCurrencySymbol(currency), false);
+    }
+
+    private String buildBudgetAlertMessage(String category, double totalSpent, double limit, String currencySymbol, boolean ignored) {
+        double usagePercent = (totalSpent / limit) * 100.0;
+        if (totalSpent > limit) {
+            double overAmount = totalSpent - limit;
+            return String.format("Budget alert: you have used %.2f%% of your budget. You are over budget by %s%.2f.", usagePercent, currencySymbol, overAmount);
+        }
+        double remaining = limit - totalSpent;
+        return String.format("Budget alert: you have used %.2f%% of your budget. You have %s%.2f left.", usagePercent, currencySymbol, remaining);
+    }
+
+    private String getCurrencySymbol(String currency) {
+        if (currency == null) {
+            return "$";
+        }
+        String normalized = currency.trim().toLowerCase();
+        if (normalized.contains("rand")) {
+            return "R";
+        }
+        if (normalized.contains("dollar")) {
+            return "$";
+        }
+        return "$";
     }
 
     private double getCategoryMonthTotal(String category, LocalDate date) throws IOException {

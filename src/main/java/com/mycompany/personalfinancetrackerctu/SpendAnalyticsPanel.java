@@ -1,9 +1,5 @@
 package com.mycompany.personalfinancetrackerctu;
 
-/*
- * Imported project classes/files: ExpenseService, IncomeManager, BaseIncomeManager, RecurringExpenseManager, Expense.
- */
-
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -37,8 +33,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
 
 /**
  * Presents charts and summaries for monthly spending, income, and recurring expenses.

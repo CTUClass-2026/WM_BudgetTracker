@@ -1,9 +1,5 @@
 package com.mycompany.personalfinancetrackerctu;
 
-/*
- * Imported project classes/files: LoginDialog.
- */
-
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.io.IOException;

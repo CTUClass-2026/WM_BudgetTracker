@@ -1,9 +1,5 @@
 package com.mycompany.personalfinancetrackerctu;
 
-/*
- * Imported project classes/files: none.
- */
-
 import java.awt.Color;
 
 import javax.swing.BorderFactory;

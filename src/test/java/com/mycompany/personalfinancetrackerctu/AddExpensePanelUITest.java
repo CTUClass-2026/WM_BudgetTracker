@@ -1,16 +1,16 @@
 package com.mycompany.personalfinancetrackerctu;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import javax.swing.SwingUtilities;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import javax.swing.SwingUtilities;
+
+import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class AddExpensePanelUITest {
     private Path tempDir;
@@ -44,5 +44,16 @@ public class AddExpensePanelUITest {
         List<Expense> all = service.getAllExpenses();
         assertEquals(1, all.size());
         assertEquals("CAT", all.get(0).getCategory());
+    }
+
+    @Test
+    public void testBudgetAlertMessageShowsRemainingAmountAndPercentage() {
+        AddExpensePanel panel = new AddExpensePanel(service);
+
+        String remainingMessage = panel.buildBudgetAlertMessage("FOOD", 80.0, 100.0, "Rands");
+        assertEquals("Budget alert: you have used 80.00% of your budget. You have R20.00 left.", remainingMessage);
+
+        String overBudgetMessage = panel.buildBudgetAlertMessage("FOOD", 120.0, 100.0, "Dollars");
+        assertEquals("Budget alert: you have used 120.00% of your budget. You are over budget by $20.00.", overBudgetMessage);
     }
 }
