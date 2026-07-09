@@ -1,5 +1,9 @@
 package com.mycompany.personalfinancetrackerctu;
 
+/*
+ * Imported project classes/files: LoginDialog.
+ */
+
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.io.IOException;
@@ -18,6 +22,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * Manages authentication and credential storage for the application.
+ * This security helper is used by the presentation layer before sensitive actions are allowed.
+ */
 public class LoginManager {
     private static final String ADMIN_USERNAME = "admin";
     private static final String DEFAULT_USERNAME = "admin";

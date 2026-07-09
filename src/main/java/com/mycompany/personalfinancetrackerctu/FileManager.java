@@ -12,6 +12,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Handles direct reading and writing of expense data in the CSV-style text file.
+ * This is the data-layer component responsible for persisting and retrieving expenses.
+ */
 public class FileManager {
     private final Path filePath;
 
@@ -23,6 +27,7 @@ public class FileManager {
         this.filePath = filePath;
     }
 
+    // Persists a new expense record to the data file so it can be loaded later.
     public void save(Expense e) throws IOException {
         ensureDataDirectory();
         try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
@@ -31,6 +36,7 @@ public class FileManager {
         }
     }
 
+    // Loads all expense records from disk and returns them sorted by date in descending order.
     public List<Expense> loadAll() throws IOException {
         if (Files.notExists(filePath)) {
             return new ArrayList<>();
@@ -50,6 +56,7 @@ public class FileManager {
         return expenses;
     }
 
+    // Removes the expense at the given index from the stored data set.
     public void delete(int indexToDelete) throws IOException {
         List<Expense> all = loadAll();
         if (indexToDelete < 0 || indexToDelete >= all.size()) {
@@ -64,6 +71,7 @@ public class FileManager {
         Files.write(filePath, lines, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     }
 
+    // Replaces an existing expense entry at the specified index with an updated version.
     public void updateExpense(int index, Expense updated) throws IOException {
         List<Expense> all = loadAll();
         if (index < 0 || index >= all.size()) {
@@ -78,6 +86,7 @@ public class FileManager {
         Files.write(filePath, lines, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     }
 
+    // Renames every expense in a category and rewrites the file with the updated values.
     public void renameCategory(String oldCategory, String newCategory) throws IOException {
         List<Expense> all = loadAll();
         boolean changed = false;
@@ -101,6 +110,7 @@ public class FileManager {
         Files.write(filePath, lines, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     }
 
+    // Replaces all expenses in a category with an Uncategorized placeholder for data preservation.
     public void removeCategory(String category) throws IOException {
         if (category == null || category.isBlank()) {
             return;

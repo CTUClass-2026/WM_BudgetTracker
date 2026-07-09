@@ -1,10 +1,18 @@
 package com.mycompany.personalfinancetrackerctu;
 
+/*
+ * Imported project classes/files: none.
+ */
+
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
+/**
+ * Centralizes the visual styling constants and button helpers for the whole UI.
+ * The presentation layer uses this class so all windows and panels keep a consistent look.
+ */
 public final class Theme {
     public static final Color APP_BG = new Color(242, 245, 249);
     public static final Color PANEL_BG = new Color(248, 250, 253);
@@ -24,6 +32,7 @@ public final class Theme {
     private Theme() {
     }
 
+    // Applies the main accent style to a button used for primary actions in the UI.
     public static void stylePrimaryButton(JButton button) {
         button.setBackground(BUTTON_PRIMARY_BG);
         button.setForeground(BUTTON_PRIMARY_TEXT);
@@ -32,6 +41,7 @@ public final class Theme {
         button.setBorder(BorderFactory.createEmptyBorder(6, 14, 6, 14));
     }
 
+    // Applies the secondary styling used for supporting buttons and less prominent actions.
     public static void styleSecondaryButton(JButton button) {
         button.setBackground(BUTTON_SECONDARY_BG);
         button.setForeground(BUTTON_SECONDARY_TEXT);

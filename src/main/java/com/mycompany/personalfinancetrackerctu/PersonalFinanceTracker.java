@@ -4,14 +4,19 @@
 
 package com.mycompany.personalfinancetrackerctu;
 
+/*
+ * Imported project classes/files: LoginManager, WelcomeDialog, ExpenseService, FileManager, MainFrame.
+ */
+
 import javax.swing.SwingUtilities;
 
 /**
- * 
- * @author ludwi
+ * Starts the application and launches the login, welcome, and main window flow.
+ * This is the entry point for the presentation layer and should be invoked by the Java runtime.
  */
 public class PersonalFinanceTracker {
     
+    // Begins the application startup sequence and opens the main UI after authentication succeeds.
     public static void main(String[] args) {
         
         SwingUtilities.invokeLater(() -> {

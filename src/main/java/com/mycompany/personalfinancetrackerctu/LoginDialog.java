@@ -1,5 +1,9 @@
 package com.mycompany.personalfinancetrackerctu;
 
+/*
+ * Imported project classes/files: IconFactory, Theme, LoginManager.
+ */
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -17,6 +21,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+/**
+ * Shows the login dialog used to authenticate the user before entering the app.
+ * This presentation-layer dialog delegates validation to the login manager.
+ */
 public class LoginDialog extends JDialog {
     private final JTextField usernameField;
     private final JPasswordField passwordField;

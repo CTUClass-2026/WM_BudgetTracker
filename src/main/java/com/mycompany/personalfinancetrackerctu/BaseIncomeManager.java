@@ -10,6 +10,10 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Stores the base monthly income values used by the analytics budget calculations.
+ * This helper keeps the budget data separate from the UI and service layers.
+ */
 public class BaseIncomeManager {
     private final Path filePath;
     private final Map<YearMonth, Double> baseIncomeByMonth = new LinkedHashMap<>();
@@ -25,6 +29,7 @@ public class BaseIncomeManager {
         load();
     }
 
+    // Saves a base income amount for a specific month so analytics can compare it with expenses.
     public synchronized void setBaseIncome(YearMonth month, double amount) {
         if (month == null || amount < 0) {
             return;
@@ -36,6 +41,7 @@ public class BaseIncomeManager {
         }
     }
 
+    // Retrieves the stored base income value for the requested month, if one exists.
     public synchronized Double getBaseIncome(YearMonth month) {
         if (month == null) {
             return null;
@@ -43,6 +49,7 @@ public class BaseIncomeManager {
         return baseIncomeByMonth.get(month);
     }
 
+    // Returns all stored base income records for use by the analytics and reporting features.
     public synchronized Map<YearMonth, Double> getAllBaseIncome() {
         return Collections.unmodifiableMap(baseIncomeByMonth);
     }

@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.personalfinancetrackerctu;
+
+/*
+ * Imported project classes/files: ExpenseService, LimitManager, LoginManager, CategoryValidator, Expense, Theme.
+ */
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -35,6 +40,10 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Displays stored expenses in a table and shows monthly budget progress for each category.
+ * This presentation-layer panel lets the user review, delete, and edit expenses.
+ */
 public class ViewExpensesPanel extends JPanel {
     private final DefaultTableModel model;
     private final JTable table;
@@ -49,10 +58,12 @@ public class ViewExpensesPanel extends JPanel {
     private final ExpenseService expenseService;
     private final LimitManager budgetManager;
 
+    // Creates the expense overview table and its related action buttons.
     public ViewExpensesPanel() {
         this(ExpenseService.DEFAULT);
     }
 
+    // Creates the expense overview panel with a provided service instance.
     public ViewExpensesPanel(ExpenseService expenseService) {
         this.expenseService = expenseService;
         setLayout(new BorderLayout(10, 10));
@@ -140,6 +151,7 @@ public class ViewExpensesPanel extends JPanel {
         SwingUtilities.invokeLater(this::refresh);
     }
 
+    // Reloads the expense table and budget progress information from the service layer.
     public void refresh() {
         model.setRowCount(0);
         try {
@@ -219,6 +231,7 @@ public class ViewExpensesPanel extends JPanel {
         progressPanel.repaint();
     }
 
+    // Opens a dialog that lets the user set or edit a monthly category limit.
     private void onSetLimit() {
         String categoryInput = JOptionPane.showInputDialog(this, "Category to set/edit limit for:");
         if (categoryInput == null || categoryInput.isBlank()) return;
@@ -261,6 +274,7 @@ public class ViewExpensesPanel extends JPanel {
         try { refresh(); } catch (Exception ignore) {}
     }
 
+    // Opens the category management dialog for renaming, deleting, or removing limits.
     private void onManageCategory() {
         try {
             List<Expense> expenses = expenseService.getAllExpenses();
@@ -359,6 +373,7 @@ public class ViewExpensesPanel extends JPanel {
         }
     }
 
+    // Deletes the currently selected expense after confirmation and login checks.
     private void deleteSelected() {
         int row = table.getSelectedRow();
         if (row < 0) {
@@ -391,6 +406,7 @@ public class ViewExpensesPanel extends JPanel {
         }
     }
 
+    // Opens an edit dialog and saves the updated expense through the service layer.
     private void editSelected() {
         int row = table.getSelectedRow();
         if (row < 0) {
@@ -472,10 +488,12 @@ public class ViewExpensesPanel extends JPanel {
     }
 
     // Test helpers
+    // Selects a row in the table for automated UI tests or programmatic interaction.
     public void selectRow(int row) {
         table.setRowSelectionInterval(row, row);
     }
 
+    // Triggers the delete action on the selected row through the button handler.
     public void clickDelete() {
         btnDelete.doClick();
     }

@@ -1,5 +1,9 @@
 package com.mycompany.personalfinancetrackerctu;
 
+/*
+ * Imported project classes/files: IconFactory, Theme.
+ */
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -13,6 +17,10 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Displays the welcome screen with the project team names before the main application opens.
+ * This small presentation dialog provides the initial user-facing introduction.
+ */
 public class WelcomeDialog extends JDialog {
     private boolean continueToApp;
 

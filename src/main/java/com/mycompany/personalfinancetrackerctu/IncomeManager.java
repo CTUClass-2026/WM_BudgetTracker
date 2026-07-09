@@ -10,6 +10,10 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Persists and reads monthly income values for the analytics and budget calculations.
+ * This class supports the service and presentation layers without coupling them to file handling.
+ */
 public class IncomeManager {
     private final Path filePath;
     private final Map<YearMonth, Double> incomeByMonth = new LinkedHashMap<>();
@@ -25,6 +29,7 @@ public class IncomeManager {
         load();
     }
 
+    // Stores a monthly income value so analytics can calculate remaining budget.
     public synchronized void setIncome(YearMonth month, double amount) {
         if (month == null || amount < 0) {
             return;
@@ -36,6 +41,7 @@ public class IncomeManager {
         }
     }
 
+    // Returns the saved income for a month when the analytics panel needs to display it.
     public synchronized Double getIncome(YearMonth month) {
         if (month == null) {
             return null;

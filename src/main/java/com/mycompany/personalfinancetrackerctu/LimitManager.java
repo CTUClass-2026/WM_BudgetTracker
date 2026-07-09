@@ -9,6 +9,10 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Stores monthly spending limits for categories and makes them available to the UI and service logic.
+ * This is part of the data-layer support for the budget tracking workflow.
+ */
 public class LimitManager {
     private final Path filePath;
     private final Map<String, Double> limits = new LinkedHashMap<>();
@@ -24,6 +28,7 @@ public class LimitManager {
         load();
     }
 
+    // Saves or updates a spending limit for a category in the budget data file.
     public synchronized void setLimit(String category, double amount) {
         String normalized = category == null ? null : category.trim().toUpperCase();
         if (normalized == null || normalized.isBlank()) {
@@ -37,6 +42,7 @@ public class LimitManager {
         }
     }
 
+    // Returns the limit associated with a category when the UI needs to compare spending against it.
     public synchronized Double getLimit(String category) {
         if (category == null) {
             return null;
@@ -48,6 +54,7 @@ public class LimitManager {
         return Collections.unmodifiableMap(limits);
     }
 
+    // Updates the stored limit when a category is renamed in the expense management features.
     public synchronized void renameCategory(String oldCategory, String newCategory) {
         if (oldCategory == null || newCategory == null || oldCategory.isBlank() || newCategory.isBlank()) {
             return;
@@ -65,6 +72,7 @@ public class LimitManager {
         }
     }
 
+    // Removes the limit for a category when it is no longer needed or should be cleared.
     public synchronized void removeLimit(String category) {
         if (category == null || category.isBlank()) {
             return;

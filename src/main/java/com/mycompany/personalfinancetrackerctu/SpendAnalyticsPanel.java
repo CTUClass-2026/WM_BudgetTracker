@@ -1,5 +1,9 @@
 package com.mycompany.personalfinancetrackerctu;
 
+/*
+ * Imported project classes/files: ExpenseService, IncomeManager, BaseIncomeManager, RecurringExpenseManager, Expense.
+ */
+
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -36,6 +40,10 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.JTabbedPane;
 
+/**
+ * Presents charts and summaries for monthly spending, income, and recurring expenses.
+ * This presentation-layer panel visualizes the data gathered through the service and data layers.
+ */
 public class SpendAnalyticsPanel extends JPanel {
 
     private final ExpenseService expenseService;
@@ -50,6 +58,7 @@ public class SpendAnalyticsPanel extends JPanel {
     private final JLabel budgetSummaryLabel;
     private final JLabel recurringListLabel;
 
+    // Builds the analytics tab with charts, summary labels, and budget controls.
     public SpendAnalyticsPanel(ExpenseService expenseService) {
         this.expenseService = expenseService;
         this.incomeManager = IncomeManager.DEFAULT;
@@ -166,6 +175,7 @@ public class SpendAnalyticsPanel extends JPanel {
         SwingUtilities.invokeLater(this::refresh);
     }
 
+    // Recomputes all charts and summaries from the latest expense and income data.
     public void refresh() {
         try {
             List<Expense> expenses = expenseService.getAllExpenses();
@@ -261,6 +271,7 @@ public class SpendAnalyticsPanel extends JPanel {
         return Math.max(0.0, income - base);
     }
 
+    // Opens a dialog that lets the user enter or update the monthly income value.
     private void onSetMonthlyIncome() {
         YearMonth now = YearMonth.now();
         Double existing = incomeManager.getIncome(now);
@@ -289,6 +300,7 @@ public class SpendAnalyticsPanel extends JPanel {
         }
     }
 
+    // Adds extra income to the current month so the budget view can show additional earnings.
     private void onAddMonthlyIncome() {
         YearMonth now = YearMonth.now();
         Double existing = incomeManager.getIncome(now);
@@ -324,6 +336,7 @@ public class SpendAnalyticsPanel extends JPanel {
         }
     }
 
+    // Removes previously added additional income from the current month when needed.
     private void onRemoveMonthlyIncome() {
         YearMonth now = YearMonth.now();
         Double existing = incomeManager.getIncome(now);
@@ -369,6 +382,7 @@ public class SpendAnalyticsPanel extends JPanel {
         }
     }
 
+    // Opens a dialog for creating a recurring expense that is included in the monthly budget.
     private void onSetRecurringExpense() {
         JPanel form = new JPanel(new BorderLayout(8, 8));
         JLabel nameLabel = new JLabel("Expense name (e.g. RENT):");
@@ -416,6 +430,7 @@ public class SpendAnalyticsPanel extends JPanel {
         }
     }
 
+    // Removes a stored recurring expense from the analytics budget calculations.
     private void onRemoveRecurringExpense() {
         Map<String, Double> recurring = recurringExpenseManager.getAllRecurringExpenses();
         if (recurring.isEmpty()) {
@@ -551,6 +566,7 @@ public class SpendAnalyticsPanel extends JPanel {
         }
     }
 
+    // Exports the current expense data to a CSV file chosen by the user.
     private void exportCsv() {
         try {
             List<Expense> expenses = expenseService.getAllExpenses();

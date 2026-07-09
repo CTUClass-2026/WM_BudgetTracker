@@ -10,6 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 
+/**
+ * Hosts the main tabbed user interface for the finance tracker.
+ * This presentation-layer window composes the expense entry, viewing, and analytics panels.
+ */
 public class MainFrame extends JFrame {
 
     private final AddExpensePanel addExpensePanel;
@@ -17,10 +21,12 @@ public class MainFrame extends JFrame {
     private final SpendAnalyticsPanel analyticsPanel;
     private final ExpenseService expenseService;
 
+    // Constructs the main window with the default service instance and all application tabs.
     public MainFrame() {
         this(ExpenseService.DEFAULT);
     }
 
+    // Constructs the main window using a provided service object so the UI can be tested or customized.
     public MainFrame(ExpenseService expenseService) {
         this.expenseService = expenseService;
 

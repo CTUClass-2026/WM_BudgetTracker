@@ -9,6 +9,10 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Maintains recurring expense entries that contribute to monthly budget calculations.
+ * This data helper supports the analytics and budget presentation views.
+ */
 public class RecurringExpenseManager {
     private final Path filePath;
     private final Map<String, Double> recurringExpenses = new LinkedHashMap<>();
@@ -24,6 +28,7 @@ public class RecurringExpenseManager {
         load();
     }
 
+    // Stores a recurring expense entry so it can be included in monthly budget summaries.
     public synchronized void setRecurringExpense(String name, double amount) {
         String normalized = name == null ? null : name.trim().toUpperCase();
         if (normalized == null || normalized.isBlank() || amount < 0) {
@@ -36,6 +41,7 @@ public class RecurringExpenseManager {
         }
     }
 
+    // Removes a recurring expense entry when the user no longer wants it to affect the budget.
     public synchronized void removeRecurringExpense(String name) {
         if (name == null || name.isBlank()) {
             return;
@@ -49,10 +55,12 @@ public class RecurringExpenseManager {
         }
     }
 
+    // Returns the sum of all recurring expense values for the current budget calculation.
     public synchronized double getTotalRecurringExpense() {
         return recurringExpenses.values().stream().mapToDouble(Double::doubleValue).sum();
     }
 
+    // Returns the full recurring expense map for display or further processing.
     public synchronized Map<String, Double> getAllRecurringExpenses() {
         return Collections.unmodifiableMap(recurringExpenses);
     }

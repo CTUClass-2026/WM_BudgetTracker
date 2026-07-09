@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.personalfinancetrackerctu;
+
+/*
+ * Imported project classes/files: ExpenseService, LimitManager, LoginManager, CategoryValidator, ViewExpensesPanel, Theme, Expense.
+ */
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -30,7 +35,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 /**
- * @author ludwi
+ * Presents the form used to enter new expenses and validate them against the budget rules.
+ * This presentation-layer panel gathers input and forwards it to the service layer for saving.
  */
 public class AddExpensePanel extends JPanel {
     private static final String[] DEFAULT_CATEGORIES = {"GROCERIES", "UTILITIES", "TRANSPORT", "ENTERTAINMENT", "SAVINGS"};
@@ -45,10 +51,12 @@ public class AddExpensePanel extends JPanel {
     private final ExpenseService expenseService;
     private final LimitManager budgetManager;
 
+    // Creates the expense entry form with the default service and budget manager.
     public AddExpensePanel() {
         this(ExpenseService.DEFAULT);
     }
 
+    // Creates the expense entry form using a provided service instance for dependency injection.
     public AddExpensePanel(ExpenseService expenseService) {
         this.expenseService = expenseService;
         this.budgetManager = LimitManager.DEFAULT;
@@ -207,6 +215,7 @@ public class AddExpensePanel extends JPanel {
     }
 
     // Test helper: set fields and perform save programmatically
+    // Populates the form fields with the given values for testing or reuse by the UI.
     public void setFields(String date, String category, String amount, String desc) {
         tfDate.setText(date);
         categoryCombo.setSelectedItem(category);
@@ -214,10 +223,12 @@ public class AddExpensePanel extends JPanel {
         tfDesc.setText(desc);
     }
 
+    // Simulates the user clicking the Save button for automated UI testing.
     public void clickSave() {
         btnSave.doClick();
     }
 
+    // Reloads the category options from the budget and expense data so the form stays current.
     public void refreshCategoryOptions() {
         reloadCategoryOptions(true);
     }
